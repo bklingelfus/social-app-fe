@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios';
 import './App.css';
 import './Profile.css';
 import Nav from './components/Nav.js'
