@@ -1,4 +1,6 @@
-const Settings = () => {
+import Login from './Login.js'
+
+const Settings = (props) => {
     return (
         <div id="settings">
             <h1>Settings</h1>
