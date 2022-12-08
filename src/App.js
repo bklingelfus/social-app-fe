@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react'
 import './App.css';
+import Nav from './components/Nav.js'
+import Topbar from './components/Topbar';
+import Home from './components/Home';
+import Search from './components/Search';
+import AddPost from './components/AddPost';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
 
-function App() {
+const App = () => {
+  const [page, setPage] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <Topbar/>
       </header>
-    </div>
+      <main>
+        {page === 0 ? <Home/> : <></>}
+        {page === 1 ? <Search/> : <></>}
+        {page === 2 ? <AddPost/> : <></>}
+        {page === 3 ? <Profile/> : <></>}
+        {page === 4 ? <Settings/> : <></>}
+      </main>
+      <footer>
+        <Nav setPage={setPage}/>
+      </footer>
+      
+    </>
   );
 }
 
