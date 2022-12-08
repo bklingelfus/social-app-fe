@@ -1,0 +1,15 @@
+.profile-info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.profile-info img {
+    width: 20%;
+}
+.profile-posts-container {
+    display: flex;
+}
+.profile-post img {
+    width: 100%;
+}
