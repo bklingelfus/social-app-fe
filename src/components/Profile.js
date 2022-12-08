@@ -1,3 +1,5 @@
+import Login from './Login.js'
+
 const Profile = (props) => {
     return (
         <div id="profile">
