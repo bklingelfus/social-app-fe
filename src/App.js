@@ -85,6 +85,9 @@ const App = () => {
       .then((response) => {
         let newUsers = [...users, response.data]
         setUsers(newUsers)
+        if (response.data !== "") {
+          setCurrentUser(response.data)
+        }
       })
     };
     const userDelete =(deletedUser)=>{
@@ -137,9 +140,9 @@ const App = () => {
       <main>
         {page === 0 ? <Home posts={posts}/> : <></>}
         {page === 1 ? <Search/> : <></>}
-        {page === 2 ? <AddPost/> : <></>}
-        {page === 3 ? <Profile/> : <></>}
-        {page === 4 ? <Settings/> : <></>}
+        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
+        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
+        {page === 4 ? <Settings currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
       </main>
       <footer>
         <Nav setPage={setPage}/>
