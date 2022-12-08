@@ -81,26 +81,51 @@ const App = () => {
     }
     // User Collection
     const userCreate =(data)=>{
-      // axios.post( baseURL+ 'animals', data)
-      // .then((response)=>{
-      //   getAnimals();
-      // })
+      axios.post(baseURL + 'users', data)
+      .then((response) => {
+        let newUsers = [...users, response.data]
+        setUsers(newUsers)
+      })
     };
-    const userDelete =(event)=>{
-      // axios.delete(baseURL+'animals/' + event.target.value)
-      // .then((response)=>{getAnimals()})
+    const userDelete =(deletedUser)=>{
+      axios.delete(baseURL + 'users/' + deletedUser._id)
+      .then((response) => {
+        const newUsers = users.filter(user => {
+          return user._id !== deletedUser._id
+        })
+        setUsers(newUsers)
+      })
     };
 
-    const userEdit =(data)=>{
-      // axios.put(baseURL+'animals/'+data._id, data)
-      // .then((response)=>{
-      //   getAnimals();
-      // })
+    const userEdit =(updatedUser)=>{
+      axios.put(baseURL + 'users/' + updatedUser._id, updatedUser)
+      .then((response) => {
+        // find editeduser index position in user state
+        const index = users.findIndex(user => {
+          return user._id === updatedUser._id
+        })
+        // assign current user state to new variable
+        let newUsers = [...users]
+        // replace previous user with newer version
+        newUsers.splice(index, 1, updatedUser)
+        // assign new variable to state
+        setUsers(newUsers)
+      })
     }
     // delete All users post
-    const userPostsDelete =(event)=>{
-      // axios.delete(baseURL+'animals/' + event.target.value)
-      // .then((response)=>{getAnimals()})
+    const userPostsDelete =(user)=>{
+      axios.delete(baseURL + 'allposts/' + user.username)
+      .then((response) => {
+        // response equals deleted posts from user
+        // we want to remove these deleted posts from specific user's posts state
+        
+        // we have to go thru each item in post state and return the posts that don't match owner w/ user's username (which we have) - assign that to new var
+        const postsToKeep = posts.filter(post => {
+          return post.owner !== user.username
+        })
+        // assign posts that are from active users below
+        setPosts(postsToKeep)
+      })
     };
 
   // RENDER
