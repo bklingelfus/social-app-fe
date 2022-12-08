@@ -135,7 +135,7 @@ const App = () => {
         <Topbar/>
       </header>
       <main>
-        {page === 0 ? <Home/> : <></>}
+        {page === 0 ? <Home posts={posts}/> : <></>}
         {page === 1 ? <Search/> : <></>}
         {page === 2 ? <AddPost/> : <></>}
         {page === 3 ? <Profile/> : <></>}
