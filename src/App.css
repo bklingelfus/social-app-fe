@@ -41,10 +41,32 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 2px solid black;
 }
 #navbar ul {
-  list-style: none;
   display: flex;
   justify-content: space-around;
   padding-left: 0;
+}
+#navbar button, #topbar button {
+  background: none;
+  border: none;
+}
+
+#topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+#topbar ul {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#topbar p {
+  margin: 0;
+}
+main {
+  margin-top: 61px;
 }
