@@ -14,7 +14,7 @@ const Login =(props)=>{
         })
     //Functions
     const changeDisplay =(num)=>{
-        setNewUser(0)
+        setNewUser(num)
         setError(0)
     }
     const handleChange =(event)=>{
@@ -22,41 +22,74 @@ const Login =(props)=>{
     }
     const loginSubmit =(event)=>{
         event.preventDefault();
-        if (user.password===password){
-
+        // get which user is trying to log in        
+        let index = props.users.findIndex( client=> {
+            return client.username === user.username
+        });
+        // Evaluate Login
+        if (index >=0){
+            if (user.password===props.users[index].password){
+                props.setCurrentUser(props.users[index])
+            } else {
+                setError(1)
+            }
         } else {
             setError(1)
         }
     }
     const createSubmit =(event)=>{
         event.preventDefault();
-        // props.handleCreate(animal);
-    }
-    return (
-    <>
-        {(error===0)?
-        <></>
-        :<h1>Username and Password did not match. Check again if you spelled both correctly!</h1>
+        // Check if username doesn't exist       
+        let index = props.users.findIndex( client=> {
+            return client.username === user.username
+        });
+        // Evaluate new user
+        if (index < 0){
+            props.userCreate(user)
+            setError(1)
+        } else {
+            setError(1)
         }
-        {(newUser===0)?
+    }
+    // HTML variables
+    const errorLogin =()=>{
+        if (error === 0) {
+            return <></>
+        } else {
+            return <h1>Username and Password did not match. Check again if you spelled both correctly!</h1>
+        }
+    }
+    const errorCreate =()=>{
+        if (error === 0) {
+            return <></>
+        } else {
+            return <h1>Invalid Credentials</h1>
+        }
+    }
+    const login =()=>{
+        return (
+            <>   
+            {errorLogin()}     
+            <form onSubmit={loginSubmit}>
+                <label htmlFor="name">Username:</label>
+                <input type='text' name="username" onChange={handleChange}/>
+                <br/>
+                <br/>
+                <label htmlFor="name">Password:</label>
+                <input type='text' name="password" onChange={handleChange}/>
+                <br/>
+                <br/>
+                <input className='form-button' type='submit'/>
+            </form>
+            <button onClick={()=>{changeDisplay(1)}}>Create an Account!</button>
+            </>
+        )
         // Login Page
-        <>        
-        <form onSubmit={loginSubmit}>
-            <label htmlFor="name">Username:</label>
-            <input type='text' name="username" onChange={handleChange}/>
-            <br/>
-            <br/>
-            <label htmlFor="name">Password:</label>
-            <input type='text' name="password" onChange={handleChange}/>
-            <br/>
-            <br/>
-            <input class='form-button' type='submit'/>
-        </form>
-        <button onClick={()=>{changeDisplay(1)}}>Create an Account!</button>
-        </>
-        :
-        // Create User Page
+    }
+    const createUser =()=>{
+        return (            
         <>
+        {errorCreate()}  
         <form onSubmit={createSubmit}>
             <label htmlFor="name">Username:</label>
             <input type='text' name="username" onChange={handleChange}/>
@@ -67,17 +100,25 @@ const Login =(props)=>{
             <br/>
             <br/>
             <label htmlFor="name">Email:</label>
-            <input type='number' name="email" onChange={handleChange}/>
+            <input type='text' name="email" onChange={handleChange}/>
             <br/>
             <br/>
             <label htmlFor="name">Profile Image:</label>
-            <input type='number' name="profileImg" onChange={handleChange}/>
+            <input type='text' name="profileImg" onChange={handleChange}/>
             <br/>
             <br/>
-            <input class='form-button' type='submit'/>
+            <input className='form-button' type='submit'/>
         </form>
         <button onClick={()=>{changeDisplay(0)}}>Already has an Account?</button>
         </>
+        )
+    }
+    // Render
+    return (
+    <>        
+        {(newUser===0)?
+        login()
+        :createUser()
         }
     </>
     )

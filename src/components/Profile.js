@@ -2,6 +2,10 @@ import Login from './Login.js'
 
 const Profile = (props) => {
     return (
+        <>
+        {(props.currentUser.username==='')?
+        <Login currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} users={props.users} userCreate={props.userCreate}/>
+        :
         <div id="profile">
             <h1>Each Profile</h1>
             <div className="profile-info">
@@ -19,6 +23,8 @@ const Profile = (props) => {
                 </div>
             </div>
         </div>
+        }
+        </>
     )
 }
 
