@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+/* Andrew styles */
+#navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+}
