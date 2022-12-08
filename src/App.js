@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css';
+import './Profile.css';
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
