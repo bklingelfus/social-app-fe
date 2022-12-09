@@ -76,7 +76,7 @@ const Login =(props)=>{
                 <br/>
                 <br/>
                 <label htmlFor="name">Password:</label>
-                <input type='text' name="password" onChange={handleChange}/>
+                <input type='password' name="password" onChange={handleChange}/>
                 <br/>
                 <br/>
                 <input className='form-button' type='submit'/>
@@ -84,7 +84,6 @@ const Login =(props)=>{
             <button onClick={()=>{changeDisplay(1)}}>Create an Account!</button>
             </>
         )
-        // Login Page
     }
     const createUser =()=>{
         return (            
@@ -96,7 +95,7 @@ const Login =(props)=>{
             <br/>
             <br/>
             <label htmlFor="name">Password:</label>
-            <input type='text' name="password" onChange={handleChange}/>
+            <input type='password' name="password" onChange={handleChange}/>
             <br/>
             <br/>
             <label htmlFor="name">Email:</label>
