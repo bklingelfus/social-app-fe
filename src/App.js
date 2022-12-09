@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import './App.css';
 import './Profile.css';
+import './Home.css'
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
