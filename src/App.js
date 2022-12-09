@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import './Profile.css';
 import './Home.css'
+import './AddPost.css'
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
@@ -141,7 +142,7 @@ const App = () => {
       <main>
         {page === 0 ? <Home posts={posts}/> : <></>}
         {page === 1 ? <Search/> : <></>}
-        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
+        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
         {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
         {page === 4 ? <Settings currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
       </main>
