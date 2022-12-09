@@ -1,12 +1,12 @@
 import Login from './Login.js'
 
 const Profile = (props) => {
-    const postLikes = () => {
-        let x = props.post.likes.length
-        return (x > 0) ? x : "0"
+    
+    const postLikes = (post) => {
+        let x = post.likes.length
+        return (x > 0) ? x : 0
     }
     
-
     return (
         <>
         {(props.currentUser.username==='')?
@@ -24,7 +24,7 @@ const Profile = (props) => {
                     return (
                         <div className="profile-post">
                             <img src={post.image} alt="each post"/>
-                            {/* <h3>Likes: {postLikes()}</h3> */}
+                            <h3>Likes: {postLikes(post)}</h3>
                             <h3>Caption: {post.body}</h3>
                             <h4>Comments:</h4>
                             {post.comments.map((comment) => {
