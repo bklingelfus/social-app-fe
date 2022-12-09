@@ -15,7 +15,6 @@ const AddPost = (props) => {
 
     const createSubmit = (event) => {
         event.preventDefault()
-        console.log(post)
         props.postCreate(post)
     }
 
@@ -47,6 +46,4 @@ const AddPost = (props) => {
         </>
     )
 }
-// form with proper fields
-// form must have createpost function via props
 export default AddPost
