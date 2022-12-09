@@ -4,6 +4,8 @@
 :root{
   
 }
+/* This will be removed later it is just for making it easy to see things */
+*{border: 1px solid black;}
 
 /* ==================================================== */
 /* - - - - - - - - - GENERAL STYLES - - - - - - - - - - */
