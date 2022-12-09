@@ -185,7 +185,7 @@ const App = () => {
         {page === 0 ? <Home posts={posts}/> : <></>}
         {page === 1 ? <Search/> : <></>}
         {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
-        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
+        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} posts={posts}/> : <></>}
         {page === 4 ? <Settings removeUser={removeUser} setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
       </main>
       <footer>

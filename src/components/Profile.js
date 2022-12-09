@@ -1,6 +1,12 @@
 import Login from './Login.js'
 
 const Profile = (props) => {
+    const postLikes = () => {
+        let x = props.post.likes.length
+        return (x > 0) ? x : "0"
+    }
+    
+
     return (
         <>
         {(props.currentUser.username==='')?
@@ -9,18 +15,29 @@ const Profile = (props) => {
         <div id="profile">
             <h1>Each Profile</h1>
             <div className="profile-info">
-                <img src="https://freesvg.org/img/abstract-user-flat-4.png"/>
-                <p>Followers: 10</p>
-                <p>Following: 5</p>
+                <img src={props.currentUser.profileImg} alt="account profile"/>
+                <p>Followers: {props.currentUser.followers.length}</p>
+                <p>Following: {props.currentUser.following.length}</p>
             </div>
             <div className="profile-posts-container">
-                <div className="profile-post">
-                    <h3>each post</h3>
-                    <img src="https://www.travelandleisure.com/thmb/SPUPzO88ZXq6P4Sm4mC5Xuinoik=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eiffel-tower-paris-france-EIFFEL0217-6ccc3553e98946f18c893018d5b42bde.jpg"/>
-                    <p>info: travelling around Paris</p>
-                    <h4>likes:</h4>
-                    <h4>comments:</h4>
-                </div>
+                {props.posts.map((post) => {
+                    return (
+                        <div className="profile-post">
+                            <img src={post.image} alt="each post"/>
+                            {/* <h3>Likes: {postLikes()}</h3> */}
+                            <h3>Caption: {post.body}</h3>
+                            <h4>Comments:</h4>
+                            {post.comments.map((comment) => {
+                                return(
+                                    <>
+                                        <h5>{comment.user}</h5>
+                                        <p>{comment.text}</p>
+                                    </>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
             </div>
         </div>
         }
