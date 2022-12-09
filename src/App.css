@@ -4,12 +4,15 @@
 :root{
   
 }
+/* This will be removed later it is just for making it easy to see things */
+*{border: 1px solid black;}
 
 /* ==================================================== */
 /* - - - - - - - - - GENERAL STYLES - - - - - - - - - - */
 /* ==================================================== */
 main {
   margin-top: 61px;
+  margin-bottom: 62px;
 }
 
 /* ==================================================== */
@@ -20,6 +23,7 @@ main {
   bottom: 0;
   width: 100%;
   border-top: 2px solid black;
+  background: white;
 }
 #navbar ul {
   display: flex;
@@ -39,6 +43,7 @@ main {
   top: 0;
   width: 100%;
   border-bottom: 2px solid black;
+  background: white;
 }
 #topbar ul {
   padding: 0px 10px;
