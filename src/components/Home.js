@@ -1,7 +1,7 @@
 const Home = (props) => {
     return (
         <div id="home">
-            <h1>Hello world</h1>
+            <h1>Home Feed</h1>
             {props.posts.map((post) => {
                 return(
                     <div className="post">
