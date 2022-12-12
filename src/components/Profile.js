@@ -13,6 +13,12 @@ const Profile = (props) => {
         setPage(id)
     }
 
+    const deletePost = (post) => {
+        console.log(post)
+        props.postDelete(post)
+        console.log('deleting post')
+    }
+
     // overarching map function that loops through each post
 
         // inside: conditionally render profile or edit
@@ -53,6 +59,7 @@ const Profile = (props) => {
                                     )
                                 })}
                                 <button onClick={() => showEdit(post._id)}>Edit Post</button>
+                                <button onClick={() => deletePost(post)}>Delete Post</button>
                             </div>
                         )
                     })}
