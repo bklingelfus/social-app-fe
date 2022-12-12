@@ -56,7 +56,7 @@ const AddPost = (props) => {
                 <br/>
                 <input className='form-button' type='submit' value="Create Post"/>
             </form>
-            <img src={post.image}/>
+            <img src={post.image} alt="new-post"/>
         </div>
         }
         </>
