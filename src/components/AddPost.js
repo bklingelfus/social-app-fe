@@ -10,12 +10,27 @@ const AddPost = (props) => {
     })
 
     const handleChange = (event) => {
-        setPost({...post, [event.target.name]: event.target.value})
+        let newValue = event.target.value;
+        if(event.target.name==='category'){
+            newValue = event.target.value.split(', ')
+            console.log(newValue)
+        }
+        setPost({...post, [event.target.name]: newValue})
     }
 
     const createSubmit = (event) => {
+        console.log(post)
+        console.log(props.currentUser)
+        let newPost ={
+            owner: props.currentUser.username,
+            image: post.image,
+            body: post.body,
+            category: post.category
+        }
+        console.log(newPost)
         event.preventDefault()
-        props.postCreate(post)
+        props.postCreate(newPost)
+        props.setPage(0)
     }
 
     return (
@@ -26,6 +41,7 @@ const AddPost = (props) => {
         <div id="add-post">
             <h1>Add Post</h1>
             <form onSubmit={createSubmit}>
+                {/* <input type='hidden' name='owner' value={props.currentUser.username}></input> */}
                 <label htmlFor="image">Image:</label>
                 <input type='text' name="image" onChange={handleChange}/>
                 <br/>
