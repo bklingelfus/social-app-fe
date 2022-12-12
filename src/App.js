@@ -56,7 +56,12 @@ const App = () => {
     const postCreate =(newPost)=>{
       axios.post( baseURL + 'posts', newPost)
       .then((response)=>{
-        setPosts(...posts, response.data);
+        // setPosts(...posts, response.data);
+        let newPosts = posts;
+        newPosts.push(response.data)
+        setPosts(newPosts)
+        console.log(response.data)
+        console.log(posts)
       })
     };
     const postDelete =(deletedPost)=>{
@@ -185,9 +190,9 @@ const App = () => {
       </header>
       <main>
         {page === 0 ? <Home posts={posts}/> : <></>}
-        {page === 1 ? <Search/> : <></>}
-        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
         {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} posts={posts} setPage={setPage} postEdit={postEdit} postDelete={postDelete}/> : <></>}
+        {page === 1 ? <Search users={users} posts={posts}/> : <></>}
+        {page === 2 ? <AddPost setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
         {page === 4 ? <Settings removeUser={removeUser} setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
       </main>
       <footer>
