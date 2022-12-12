@@ -56,7 +56,7 @@ const Profile = (props) => {
                     {props.posts.map((post) => {
                         
                         return (
-                            <>
+                            <div key={post._id}>
                                 {(post.owner === props.currentUser.username) ?
                                 <div className="profile-post">
                                     <img src={post.image} alt="each post"/>
@@ -65,10 +65,10 @@ const Profile = (props) => {
                                     <h4>Comments:</h4>
                                     {post.comments.map((comment) => {
                                         return(
-                                            <>
+                                            <div key={comment._id}>
                                                 <h5>{comment.user}</h5>
                                                 <p>{comment.text}</p>
-                                            </>
+                                            </div>
                                         )
                                     })}
                                     <button onClick={() => showEdit(post._id)}>Edit Post</button>
@@ -77,7 +77,7 @@ const Profile = (props) => {
                                 :
                                 <></>
                                 }
-                            </>
+                            </div>
                         )
                     })}
                 </div>
@@ -92,9 +92,9 @@ const Profile = (props) => {
             {
                 userPost.map((post) => {
                     return (
-                        <>
+                        <div key={post._id}>
                             {(page === post._id) ? <EditPost post={post} setPage={setPage} postEdit={props.postEdit}/>: <></>}
-                        </>
+                        </div>
                     )
                 })
             }

@@ -110,7 +110,7 @@ const Search = (props) => {
             <div>
                 {search.users.map((item)=>{
                     return(
-                        <div>
+                        <div key={item._id}>
                             <img src={item.profileImg} alt="Profile Img"></img>
                             <div>
                                 <h2>{item.username}</h2>
@@ -124,16 +124,17 @@ const Search = (props) => {
                 })}
                 {search.posts.map((item)=>{
                     return(
-                        <div>
+                        <div key={item._id}>
                             <h2>{item.owner}</h2>
                             <img src={item.image} alt='Post Img'></img>
                             <div>
+                                <p>Caption: {item.body}</p>
                                 <h4>Likes: <span>{item.likes.length}</span></h4>
                                 <h4>Comments:</h4>
                                 <div>
                                 {item.comments.map((comment)=>{
                                     return (
-                                        <div>
+                                        <div key={comment._id}>
                                             <h4>{comment.user}</h4>
                                             <p>{comment.text}</p>
                                         </div>
@@ -154,12 +155,12 @@ const Search = (props) => {
             <div>
                 {recommendation.users.map((item)=>{
                     return(
-                        <button onClick={()=>{directSearch(item)}}>{item}</button>
+                        <button onClick={()=>{directSearch(item)}} key={item}>{item}</button>
                     )
                 })}
                 {recommendation.posts.map((item)=>{
                     return(
-                        <button onClick={()=>{directSearch(item)}}>{item}</button>
+                        <button onClick={()=>{directSearch(item)}} key={item}>{item}</button>
                     )
                 })}
             </div>
