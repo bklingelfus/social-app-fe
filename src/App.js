@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import './Profile.css';
 import './Home.css'
+import './AddPost.css'
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
@@ -10,10 +11,12 @@ import Search from './components/Search';
 import AddPost from './components/AddPost';
 import Profile from './components/Profile';
 import Settings from './components/Settings';
+import EditPost from './components/EditPost';
 
 const App = () => {
 
   // Variables
+  // const baseURL = 'https://social-media-app-back-end-ba.herokuapp.com/'
   const baseURL = 'http://localhost:3000/'
   // States
   const [posts, setPosts] = useState([]);
@@ -131,6 +134,47 @@ const App = () => {
         setPosts(postsToKeep)
       })
     };
+    // delete All users post
+    const userCommentsDelete =(user)=>{
+      axios.put(baseURL + 'allcomments/' + user.username)
+      .then((response) => {
+        // filter for all the other posts
+        // filter posts for posts with user comments
+        // loop in that filter
+          // remove user comments
+        // setState (filterOfOtherPosts + filterOfChangedPosts)
+        // OR
+        // do a getPosts()
+      })
+    };
+    // delete All users post
+    const userFollowingDelete =(user)=>{
+      axios.put(baseURL + 'followers/' + user.username)
+      .then((response) => {
+      })
+      axios.put(baseURL + 'following/' + user.username)
+      .then((response) => {
+      })
+    };
+    const removeUser =(user)=>{
+      // Removing user "presence"
+      userDelete(user);
+      userPostsDelete(user);
+      userCommentsDelete(user);
+      userFollowingDelete(user);
+      // Reset states
+      getPosts();
+      getUsers();
+      setPage(0);
+      setCurrentUser({
+        username: '',
+        password: '',
+        profileImg: "https://freesvg.org/img/abstract-user-flat-4.png",
+        email: '',
+        followers: [],
+        following: []
+      });
+    }
 
   // RENDER
   return (
@@ -141,9 +185,9 @@ const App = () => {
       <main>
         {page === 0 ? <Home posts={posts}/> : <></>}
         {page === 1 ? <Search/> : <></>}
-        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
-        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate}/> : <></>}
-        {page === 4 ? <Settings setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
+        {page === 2 ? <AddPost currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
+        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} posts={posts} setPage={setPage} postEdit={postEdit}/> : <></>}
+        {page === 4 ? <Settings removeUser={removeUser} setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
       </main>
       <footer>
         <Nav setPage={setPage}/>

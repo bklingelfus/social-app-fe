@@ -91,7 +91,7 @@ const Settings = (props) => {
                 {(settingsOption === 2)?
                 <>
                     <p>Are you sure you want to <span>permanently</span> delete your account? That includes all your posts but not all of yours comments on other posts.</p>
-                    <button>Delete Anyway</button>
+                    <button onClick={()=>{props.removeUser(user)}}>Delete Anyway</button>
                 </>
                 :<></>
                 }
