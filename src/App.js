@@ -4,6 +4,7 @@ import './App.css';
 import './Profile.css';
 import './Home.css'
 import './AddPost.css'
+import './EditPost.css'
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
