@@ -41,7 +41,6 @@ const AddPost = (props) => {
         <div id="add-post">
             <h1>Add Post</h1>
             <form onSubmit={createSubmit}>
-                {/* <input type='hidden' name='owner' value={props.currentUser.username}></input> */}
                 <label htmlFor="image">Image:</label>
                 <input type='text' name="image" onChange={handleChange}/>
                 <br/>
