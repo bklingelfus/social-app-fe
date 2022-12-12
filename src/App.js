@@ -4,6 +4,7 @@ import './App.css';
 import './Profile.css';
 import './Home.css'
 import './AddPost.css'
+import './EditPost.css'
 import Nav from './components/Nav.js'
 import Topbar from './components/Topbar';
 import Home from './components/Home';
@@ -189,9 +190,9 @@ const App = () => {
       </header>
       <main>
         {page === 0 ? <Home posts={posts}/> : <></>}
+        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} posts={posts} setPage={setPage} postEdit={postEdit} postDelete={postDelete}/> : <></>}
         {page === 1 ? <Search users={users} posts={posts}/> : <></>}
         {page === 2 ? <AddPost setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} postCreate={postCreate}/> : <></>}
-        {page === 3 ? <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} posts={posts} setPage={setPage} postEdit={postEdit}/> : <></>}
         {page === 4 ? <Settings removeUser={removeUser} setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
       </main>
       <footer>

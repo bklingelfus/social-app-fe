@@ -10,8 +10,11 @@ const Profile = (props) => {
     }
 
     const showEdit = (id) => {
-        console.log(id)
         setPage(id)
+    }
+
+    const deletePost = (post) => {
+        props.postDelete(post)
     }
 
     // overarching map function that loops through each post
@@ -54,6 +57,7 @@ const Profile = (props) => {
                                     )
                                 })}
                                 <button onClick={() => showEdit(post._id)}>Edit Post</button>
+                                <button onClick={() => deletePost(post)}>Delete Post</button>
                             </div>
                         )
                     })}
