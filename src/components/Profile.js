@@ -10,7 +10,6 @@ const Profile = (props) => {
     }
 
     const showEdit = (id) => {
-        console.log(id)
         setPage(id)
     }
 
