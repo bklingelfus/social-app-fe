@@ -1,3 +1,16 @@
+# About Front end
+tech stack: React, react-bootstrap, axios
+approach: we decided to make sure all the functionality of the app was working as we wanted to satisfy the user stories before giving energy and time to styling the app
+User stories:
+    1. User can access home feed and search without having to be logged in
+    2. User can create a new account
+    3. User can create a new post/access settings page as long as they're logged in
+    4. User can delete/edit their own posts while on profile page
+    5. User can search users/posts/categories based on exact text matching
+Unsolved problems: 
+    1. 	When adding a post, user taken to homepage and newly added post isn’t there because the posts state loads slower - we forgot to ask about this
+Heroku live link: [Live App](https://social-media-app-front-end-ba.herokuapp.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
