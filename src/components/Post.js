@@ -7,7 +7,7 @@ const Post =(props)=>{
                         <p className='username'><span className='header'>Posted By: </span>{post.owner}</p>
                         <img src={post.image} alt="cool pic"/>
                         <div className="post-info">
-                            <p><span className='header'>Likes: </span> {post.likes}</p>
+                            <p><span className='header'>Likes: </span> {post.likes.length}</p>
                             <p><span className='header'>Caption: </span>{post.body}</p>
                             <p><span className='header'>Categories:</span>
                             {post.category.map((cat) => {
@@ -20,7 +20,7 @@ const Post =(props)=>{
                                 <summary>Comments:</summary>
                                 {post.comments.map((comment) => {
                                     return(
-                                        <div key={comment._id}>
+                                        <div className='comment-div' key={comment._id}>
                                             <h5>{comment.user}</h5>
                                             <p>{comment.text}</p>
                                         </div>

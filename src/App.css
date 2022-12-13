@@ -102,6 +102,14 @@ main {
 summary {
   font-weight: bold;
 }
+.comment-div {
+  border-bottom: 1px solid gray;
+}
+  .comment-div h5 {
+    text-decoration: underline;
+    margin: 0.8vh;
+    font-size: 1em;
+  }
 
 /* ==================================================== */
 /* - - - - - - - - - - - SEARCH - - - - - - - - - - - - */
