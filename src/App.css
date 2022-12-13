@@ -36,6 +36,9 @@ main {
   background: none;
   border: none;
 }
+.active {
+  color: rgb(234, 91, 39);
+}
 
 /* ==================================================== */
 /* - - - - - - - - - - TOPBAR - - - - - - - - - - - - - */
@@ -54,6 +57,14 @@ main {
 }
 #topbar p {
   margin: 0;
+  text-decoration: none;
+  background: linear-gradient(45deg, rgb(205, 32, 32), rgb(234, 91, 39), rgb(251, 228, 98), rgb(234, 91, 39), rgb(205, 32, 32));
+  background-size: 200% 200%;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 10s ease infinite;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
 /* ==================================================== */
@@ -95,18 +106,26 @@ summary {
 /* ==================================================== */
 /* - - - - - - - - - - - SEARCH - - - - - - - - - - - - */
 /* ==================================================== */
+.search-container {
+  padding-top: 3vh;
+}
 .search-form {
   display:flex;
   justify-content: space-between;
   margin-bottom: 1vh;
 }
 .search-bar{
-  width: 75%;
-  font-size: 1.5em;
+  width: 70%;
+  font-size: 1.3em;
+  border-radius: 5px;
+  border-style: inset;
 }
 .search-button{
-  width: 20%;
-  font-size: 1.5em;
+  width: 25%;
+  font-size: 1.3em;
+  background: rgb(81, 80, 80);
+  color: white;
+  border-radius: 5px;
 }
 .rec-container {
   display: flex;
@@ -115,14 +134,19 @@ summary {
   .rec-container button {
     margin: 0.3vh;
     font-size: 1.2em;
+    border: none;
+    color: rgb(73, 72, 72);
   }
 .search-user {
   display: flex;
-  margin: 1vh;
+  margin: 1vh 0;
+  border: 1px solid black;
 }
   .search-user img {
     height: 10vh;
     width: auto;
+    margin-left: 3vw;
+    margin-top: 0.5vh;
   }
   .search-user div {
     display: flex;
@@ -138,6 +162,10 @@ summary {
   .search-user h2 {
     margin: 0;
     margin-left: 2vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border-bottom: 1px solid black; */
+    text-align: center;
   }
 
 /* ==================================================== */
@@ -148,6 +176,7 @@ summary {
   min-height: 100vh;
   font-size: 2em;
   font-weight: bold;
+  padding-top: 1vh;
 }
   .login-form form {
     margin-top: 5%;
@@ -157,11 +186,17 @@ summary {
       margin: 1vh;
       width: 70%;
     }
+    .form-button {
+      background: rgb(81, 80, 80);
+      color: white;
+      border-radius: 5px;
+    }
   .login-form button{
     margin: 3vh;
     font-size: 0.7em;
     background: none;
     border: none;
+    color: rgb(87, 181, 225);
   }
     .login-form button:hover {
       text-decoration: underline;
@@ -227,6 +262,7 @@ summary {
 }
   #profile h1 {
     text-align: center;
+    padding-top: 2vh;
   }
 #profile .username {
   margin: 0;
@@ -237,6 +273,20 @@ summary {
 #profile button {
   margin-right: 1em;
 }
+  .edit-button {
+    background: rgb(73, 72, 72);
+    color: white;
+    border: 2px solid rgb(73, 72, 72);
+    padding: 0.7vh 2vw;
+    border-radius: 5px;
+  }
+  .remove-button {
+    background: white;
+    color: red;
+    border: 2px solid red;
+    padding: 0.5vh 2vw;
+    border-radius: 5px;
+  }
 
 /* ==================================================== */
 /* - - - - - - - - - - SETTINGS - - - - - - - - - - - - */
@@ -263,6 +313,7 @@ summary {
 
   .settings input {
     font-size: 0.7em;
+    width: 60%;
   }
   .settings span {
     font-weight: bold;
@@ -272,6 +323,11 @@ summary {
     width: 50%;
     font-size: 1em;
     font-weight: bold;
+    border: none;
+    background: red;
+    color: white;
+    padding: 0.5vh;
+    border-radius: 5px;
   }
 
 .tab-button{
@@ -279,6 +335,9 @@ summary {
   font-size: 1.2em;
   font-weight: bold;
   margin: 1vh;
+  background: rgb(63, 63, 63);
+  color: white;
+  border: none;
 }
 
 .log-off {
@@ -286,11 +345,18 @@ summary {
   font-size: 1.2em;
   font-weight: bold;
   margin: 1vh;
+  border: 3px solid red;
+  color: red;
+  background: none;
+  border-radius: 10px;
 }
 
 #form-button {
   font-size: 1.2em;
-  padding: 0.3vh 2vw;
+  padding: 0.3vh 2vw;  
+  background: rgb(63, 63, 63);
+  color: white;
+  border: none;
 }
 
 /* ==================================================== */
@@ -303,4 +369,22 @@ summary {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 50% 50%;
+	}
+    25% {
+		background-position: 100% 100%;
+	}
+	50% {
+		background-position: 50% 50%;
+	}
+    75% {
+		background-position: 0% 0%;
+	}
+	100% {
+		background-position: 50% 50%;
+	}
 }

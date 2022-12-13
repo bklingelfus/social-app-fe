@@ -13,8 +13,8 @@ import EditPost from './components/EditPost';
 const App = () => {
 
   // Variables
-  // const baseURL = 'https://social-media-app-back-end-ba.herokuapp.com/'
-  const baseURL = 'http://localhost:3000/'
+  const baseURL = 'https://social-media-app-back-end-ba.herokuapp.com/'
+  // const baseURL = 'http://localhost:3000/'
   // States
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
@@ -192,7 +192,7 @@ const App = () => {
         {page === 4 ? <Settings removeUser={removeUser} setPage={setPage} currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} userCreate={userCreate} userEdit={userEdit}/> : <></>}
       </main>
       <footer>
-        <Nav setPage={setPage}/>
+        <Nav setPage={setPage} page={page}/>
       </footer>
       
     </>

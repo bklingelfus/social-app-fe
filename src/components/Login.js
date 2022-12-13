@@ -89,7 +89,7 @@ const Login =(props)=>{
     }
     const createUser =()=>{
         return (            
-        <>
+        <div className='login-form'>
         {errorCreate()}  
         <form onSubmit={createSubmit}>
             <label htmlFor="name">Username:</label>
@@ -111,7 +111,7 @@ const Login =(props)=>{
             <input className='form-button' type='submit'/>
         </form>
         <button onClick={()=>{changeDisplay(0)}}>Already has an Account?</button>
-        </>
+        </div>
         )
     }
     // Render
