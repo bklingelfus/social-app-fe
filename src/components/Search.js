@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Post from './Post.js'
 
 const Search = (props) => {
     // States
@@ -110,41 +111,19 @@ const Search = (props) => {
             <div>
                 {search.users.map((item)=>{
                     return(
-                        <div key={item._id}>
+                        <div className='search-user' key={item._id}>
                             <img src={item.profileImg} alt="Profile Img"></img>
                             <div>
                                 <h2>{item.username}</h2>
                                 <div>
-                                    <h4>Followers: <span>{item.followers.length}</span></h4>
-                                    <h4>Following: <span>{item.following.length}</span></h4>
+                                    <p>Followers: <span>{item.followers.length}</span></p>
+                                    <p>Following: <span>{item.following.length}</span></p>
                                 </div>
                             </div>
                         </div>
                     )
                 })}
-                {search.posts.map((item)=>{
-                    return(
-                        <div key={item._id}>
-                            <h2>{item.owner}</h2>
-                            <img src={item.image} alt='Post Img'></img>
-                            <div>
-                                <p>Caption: {item.body}</p>
-                                <h4>Likes: <span>{item.likes.length}</span></h4>
-                                <h4>Comments:</h4>
-                                <div>
-                                {item.comments.map((comment)=>{
-                                    return (
-                                        <div key={comment._id}>
-                                            <h4>{comment.user}</h4>
-                                            <p>{comment.text}</p>
-                                        </div>
-                                    )
-                                })}
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })}
+                <Post posts={search.posts}/>
             </div>
             </>
         )
@@ -152,15 +131,15 @@ const Search = (props) => {
     const searchRecommendation=()=>{
         return(
             <>
-            <div>
+            <div className='rec-container'>
                 {recommendation.users.map((item)=>{
                     return(
-                        <button onClick={()=>{directSearch(item)}} key={item}>{item}</button>
+                        <button className='rec-button' onClick={()=>{directSearch(item)}} key={item}>{item}</button>
                     )
                 })}
                 {recommendation.posts.map((item)=>{
                     return(
-                        <button onClick={()=>{directSearch(item)}} key={item}>{item}</button>
+                        <button className='rec-button' onClick={()=>{directSearch(item)}} key={item}>{item}</button>
                     )
                 })}
             </div>
@@ -172,9 +151,9 @@ const Search = (props) => {
     return (
         <>
             <div>
-                <form onSubmit={runSearch}>
-                    <input type='text' onChange={handleSearch} placeholder="user, category, ..."></input>
-                    <input type='submit' value='Search'></input>
+                <form className='search-form' onSubmit={runSearch}>
+                    <input className='search-bar' type='text' onChange={handleSearch} placeholder="user, category, ..."></input>
+                    <input className='search-button' type='submit' value='Search'></input>
                 </form>
             </div>  
             {(display===0)?

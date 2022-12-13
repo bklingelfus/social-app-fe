@@ -50,8 +50,7 @@ const Settings = (props) => {
                 <br/> */}
                 <label htmlFor="name">New Password:</label>
                 <input type='password' name="password" onChange={handleChange}/>
-                <p>Leave empty if you do not want to change it</p>
-                <br/>
+                <p className='warning'>* Leave empty if you do not want to change it</p>
                 <br/>
                 <label htmlFor="name">Email:</label>
                 <input type='text' name="email" onChange={handleChange} placeholder={user.email}/>
@@ -61,7 +60,7 @@ const Settings = (props) => {
                 <input type='text' name="profileImg" onChange={handleChange} placeholder={user.profileImg}/>
                 <br/>
                 <br/>
-                <input className='form-button' type='submit'/>
+                <input id='form-button' type='submit'/>
             </form>
             </>
         )
@@ -69,37 +68,37 @@ const Settings = (props) => {
 
     // RENDER
     return (
-        <>
+        <div className="settings">
         {(props.currentUser.username==='')?
         <Login currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} users={props.users} userCreate={props.userCreate}/>
         :<>
-            <div id="settings">
+            <div>
                 <h1>Settings</h1>
-                <button onClick={()=>{changeDisplay(0)}}>Edit Profile</button>
+                <button className='tab-button' onClick={()=>{changeDisplay(0)}}>Edit Profile</button>
                 {(settingsOption === 0)?
                 editUser()
                 :<></>
                 }
-                <button onClick={()=>{changeDisplay(1)}}>General Settings</button>
+                <button className='tab-button' onClick={()=>{changeDisplay(1)}}>General Settings</button>
                 {(settingsOption === 1)?
                 <>
                     <p>Some future settings will be here</p>
                 </>
                 :<></>
                 }
-                <button onClick={()=>{changeDisplay(2)}}>Delete Profile</button>
+                <button className='tab-button' onClick={()=>{changeDisplay(2)}}>Delete Profile</button>
                 {(settingsOption === 2)?
                 <>
                     <p>Are you sure you want to <span>permanently</span> delete your account? That includes all your posts but not all of yours comments on other posts.</p>
-                    <button onClick={()=>{props.removeUser(user)}}>Delete Anyway</button>
+                    <button className='delete-button' onClick={()=>{props.removeUser(user)}}>Delete Anyway</button>
                 </>
                 :<></>
                 }
-                <button onClick={logOff}>Log Off</button>
+                <button className='log-off' onClick={logOff}>Log Off</button>
             </div>
         </>
         }
-        </>
+        </div>
     )
 }
 

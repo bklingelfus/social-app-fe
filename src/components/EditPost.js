@@ -13,7 +13,7 @@ const EditPost = (props) => {
     }
     return (
         <>
-            <div id="edit-post">
+            <div id="add-post">
                 <h1>Edit Post</h1>
                 <form onSubmit={updateSubmit}>
                     <label htmlFor="image">Image:</label>
@@ -31,6 +31,7 @@ const EditPost = (props) => {
                     <input className='form-button' type='submit' value="Update Post"/>
                 </form>
                 <img src={props.post.image} alt="new-post"/>
+                <p>{props.post.body}</p>
             </div>
         </>
     )

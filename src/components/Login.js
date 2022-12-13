@@ -68,21 +68,23 @@ const Login =(props)=>{
     }
     const login =()=>{
         return (
-            <>   
+            <div className='login-form'>   
             {errorLogin()}     
             <form onSubmit={loginSubmit}>
                 <label htmlFor="name">Username:</label>
+                <br/>
                 <input type='text' name="username" onChange={handleChange}/>
                 <br/>
                 <br/>
                 <label htmlFor="name">Password:</label>
+                <br/>
                 <input type='password' name="password" onChange={handleChange}/>
                 <br/>
                 <br/>
                 <input className='form-button' type='submit'/>
             </form>
             <button onClick={()=>{changeDisplay(1)}}>Create an Account!</button>
-            </>
+            </div>
         )
     }
     const createUser =()=>{
