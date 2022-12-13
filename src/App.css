@@ -59,15 +59,31 @@ main {
 /* ==================================================== */
 /* - - - - - - - - - - - HOME - - - - - - - - - - - - - */
 /* ==================================================== */
-.post {margin: 2vh 0;}
+.posts-container {
+  padding-top: 0.5em;
+}
+.post {
+  margin-bottom: 2vh;
+  border: 1px solid black;
+  padding: 0.7em 0;
+}
 .post img {
-  height: 50vh;
+  height: 40vh;
   width: 100%;
   object-fit: contain;
+}
+.username {
+  margin: 0;
 }
 .header {
   font-weight: bold;
   margin-left: 1vw;
+}
+.post-info {
+  padding: 0 0.5em;
+}
+.post-info p {
+  margin: 0.5em 0;
 }
 .category-list {
   margin: 1vw;
@@ -197,6 +213,7 @@ summary {
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: 1.5em;
 }
 .profile-info img {
   width: 20%;
@@ -211,6 +228,15 @@ summary {
   #profile h1 {
     text-align: center;
   }
+#profile .username {
+  margin: 0;
+}
+#profile details {
+  margin-bottom: 1em;
+}
+#profile button {
+  margin-right: 1em;
+}
 
 /* ==================================================== */
 /* - - - - - - - - - - SETTINGS - - - - - - - - - - - - */
