@@ -93,18 +93,22 @@ const Login =(props)=>{
         {errorCreate()}  
         <form onSubmit={createSubmit}>
             <label htmlFor="name">Username:</label>
+            <br/>
             <input type='text' name="username" onChange={handleChange}/>
             <br/>
             <br/>
             <label htmlFor="name">Password:</label>
+            <br/>
             <input type='password' name="password" onChange={handleChange}/>
             <br/>
             <br/>
             <label htmlFor="name">Email:</label>
+            <br/>
             <input type='text' name="email" onChange={handleChange}/>
             <br/>
             <br/>
             <label htmlFor="name">Profile Image:</label>
+            <br/>
             <input type='text' name="profileImg" onChange={handleChange}/>
             <br/>
             <br/>
