@@ -2,10 +2,11 @@
 /* - - - - - - - - - - SETUP - - - - - - - - - - - - -  */
 /* ==================================================== */
 :root{
-  
+  --post-background:gray;
+  --navbar: gray;
 }
 /* This will be removed later it is just for making it easy to see things */
-*{border: 1px solid black;}
+/* *{border: 1px solid black;} */
 
 /* ==================================================== */
 /* - - - - - - - - - GENERAL STYLES - - - - - - - - - - */
@@ -13,6 +14,7 @@
 main {
   margin-top: 61px;
   margin-bottom: 62px;
+  padding: 0 2vw;
 }
 
 /* ==================================================== */
@@ -34,6 +36,9 @@ main {
   background: none;
   border: none;
 }
+.active {
+  color: rgb(234, 91, 39);
+}
 
 /* ==================================================== */
 /* - - - - - - - - - - TOPBAR - - - - - - - - - - - - - */
@@ -52,6 +57,306 @@ main {
 }
 #topbar p {
   margin: 0;
+  text-decoration: none;
+  background: linear-gradient(45deg, rgb(205, 32, 32), rgb(234, 91, 39), rgb(251, 228, 98), rgb(234, 91, 39), rgb(205, 32, 32));
+  background-size: 200% 200%;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 10s ease infinite;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+/* ==================================================== */
+/* - - - - - - - - - - - HOME - - - - - - - - - - - - - */
+/* ==================================================== */
+.posts-container {
+  padding-top: 0.5em;
+}
+.post {
+  margin-bottom: 2vh;
+  border: 1px solid black;
+  padding: 0.7em 0;
+}
+.post img {
+  height: 40vh;
+  width: 100%;
+  object-fit: contain;
+}
+.username {
+  margin: 0;
+}
+.header {
+  font-weight: bold;
+  margin-left: 1vw;
+}
+.post-info {
+  padding: 0 0.5em;
+}
+.post-info p {
+  margin: 0.5em 0;
+}
+.category-list {
+  margin: 1vw;
+}
+summary {
+  font-weight: bold;
+}
+
+/* ==================================================== */
+/* - - - - - - - - - - - SEARCH - - - - - - - - - - - - */
+/* ==================================================== */
+.search-container {
+  padding-top: 3vh;
+}
+.search-form {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+.search-bar{
+  width: 70%;
+  font-size: 1.3em;
+  border-radius: 5px;
+  border-style: inset;
+}
+.search-button{
+  width: 25%;
+  font-size: 1.3em;
+  background: rgb(81, 80, 80);
+  color: white;
+  border-radius: 5px;
+}
+.rec-container {
+  display: flex;
+  flex-direction: column;
+}
+  .rec-container button {
+    margin: 0.3vh;
+    font-size: 1.2em;
+    border: none;
+    color: rgb(73, 72, 72);
+  }
+.search-user {
+  display: flex;
+  margin: 1vh 0;
+  border: 1px solid black;
+}
+  .search-user img {
+    height: 10vh;
+    width: auto;
+    margin-left: 3vw;
+    margin-top: 0.5vh;
+  }
+  .search-user div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+    flex: 1;
+  }
+  .search-user p {
+    margin: 0;
+    text-align: center;
+  }
+  .search-user h2 {
+    margin: 0;
+    margin-left: 2vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    /* border-bottom: 1px solid black; */
+    text-align: center;
+  }
+
+/* ==================================================== */
+/* - - - - - - - - - - - LOGIN - - - - - - - - - - - -  */
+/* ==================================================== */
+.login-form {
+  text-align: center;
+  min-height: 100vh;
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 1vh;
+}
+  .login-form form {
+    margin-top: 5%;
+  }
+    .login-form input {
+      font-size: 0.9em;
+      margin: 1vh;
+      width: 70%;
+    }
+    .form-button {
+      background: rgb(81, 80, 80);
+      color: white;
+      border-radius: 5px;
+    }
+  .login-form button{
+    margin: 3vh;
+    font-size: 0.7em;
+    background: none;
+    border: none;
+    color: rgb(87, 181, 225);
+  }
+    .login-form button:hover {
+      text-decoration: underline;
+    }
+  .login-form h1 {
+    color: red;
+    text-decoration: underline;
+    font-size: 0.5em;
+    margin: 1vh 2vw;
+  }
+
+/* ==================================================== */
+/* - - - - - - - - - - ADD POST - - - - - - - - - - - - */
+/* ==================================================== */
+#add-post {
+  text-align: center;
+  min-height: 100vh;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+  #add-post label {
+    margin: 1vw;
+  }
+  #add-post input {
+    font-size: 0.7em;
+  }
+  #add-post p {
+    font-weight: 400;
+    margin: 0;
+  }
+#add-post img {
+  margin: 2vh 0;
+  width: 100%;
+}
+
+
+/* ==================================================== */
+/* - - - - - - - - - - EDIT POST - - - - - - - - - - -  */
+/* ==================================================== */
+#edit-post img {
+  width: 100%;
+}
+
+/* ==================================================== */
+/* - - - - - - - - - - PROFILE - - - - - - - - - - - -  */
+/* ==================================================== */
+.profile-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1.5em;
+}
+.profile-info img {
+  width: 20%;
+}
+.profile-posts-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.profile-post img {
+  width: 100%;
+}
+  #profile h1 {
+    text-align: center;
+    padding-top: 2vh;
+  }
+#profile .username {
+  margin: 0;
+}
+#profile details {
+  margin-bottom: 1em;
+}
+#profile button {
+  margin-right: 1em;
+}
+  .edit-button {
+    background: rgb(73, 72, 72);
+    color: white;
+    border: 2px solid rgb(73, 72, 72);
+    padding: 0.7vh 2vw;
+    border-radius: 5px;
+  }
+  .remove-button {
+    background: white;
+    color: red;
+    border: 2px solid red;
+    padding: 0.5vh 2vw;
+    border-radius: 5px;
+  }
+
+/* ==================================================== */
+/* - - - - - - - - - - SETTINGS - - - - - - - - - - - - */
+/* ==================================================== */
+.settings {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+  .settings form {
+    margin: 1vh;
+  }
+  .settings label {
+    margin: 1vh;
+  }
+  .warning {
+    font-weight: 400;
+    font-size: 0.8em;
+    margin: 01vh
+  }
+  .settings p {
+    font-weight: 400;
+  }
+
+  .settings input {
+    font-size: 0.7em;
+    width: 60%;
+  }
+  .settings span {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .delete-button {
+    width: 50%;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background: red;
+    color: white;
+    padding: 0.5vh;
+    border-radius: 5px;
+  }
+
+.tab-button{
+  width: 95%;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1vh;
+  background: rgb(63, 63, 63);
+  color: white;
+  border: none;
+}
+
+.log-off {
+  width: 95%;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1vh;
+  border: 3px solid red;
+  color: red;
+  background: none;
+  border-radius: 10px;
+}
+
+#form-button {
+  font-size: 1.2em;
+  padding: 0.3vh 2vw;  
+  background: rgb(63, 63, 63);
+  color: white;
+  border: none;
 }
 
 /* ==================================================== */
@@ -64,4 +369,22 @@ main {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 50% 50%;
+	}
+    25% {
+		background-position: 100% 100%;
+	}
+	50% {
+		background-position: 50% 50%;
+	}
+    75% {
+		background-position: 0% 0%;
+	}
+	100% {
+		background-position: 50% 50%;
+	}
 }

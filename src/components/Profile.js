@@ -4,14 +4,28 @@ import EditPost from './EditPost.js'
 
 const Profile = (props) => {
     const [page, setPage] = useState(0)
+    const [userPost, setUserPosts] = useState([])
+
+    // const currentUserPosts = () => {
+    //     let newPosts = props.posts.filter((post) => {
+    //         return post.owner === props.currentUser.username
+    //     })
+    //     console.log(newPosts)
+    //     setUserPosts(newPosts)
+    //     // console.log(...userPost, newPosts)
+    // }
+    
     const postLikes = (post) => {
         let x = post.likes.length
         return (x > 0) ? x : 0
     }
 
     const showEdit = (id) => {
-        console.log(id)
         setPage(id)
+    }
+
+    const deletePost = (post) => {
+        props.postDelete(post)
     }
 
     // overarching map function that loops through each post
@@ -25,37 +39,58 @@ const Profile = (props) => {
     // props contains currentUser data, posts data
     
     const showProfile = () => {
+        // currentUserPosts()
         return (
             <>
             {(props.currentUser.username==='')?
             <Login currentUser={props.currentUser} setCurrentUser={props.setCurrentUser} users={props.users} userCreate={props.userCreate}/>
             :
             <div id="profile">
-                <h1>Each Profile</h1>
+                <h1>{props.currentUser.username}'s Profile</h1>
                 <div className="profile-info">
                     <img src={props.currentUser.profileImg} alt="account profile"/>
-                    <p>Followers: {props.currentUser.followers.length}</p>
-                    <p>Following: {props.currentUser.following.length}</p>
-                </div>
-                <div className="profile-posts-container">
+                    <p><span>Followers: </span>{props.currentUser.followers.length}</p>
+                    <p><span>Following: </span>{props.currentUser.following.length}</p>
+                </div>                
+                <div>
                     {props.posts.map((post) => {
-                        return (
-                            <div className="profile-post">
-                                <img src={post.image} alt="each post"/>
-                                <h3>Likes: {postLikes(post)}</h3>
-                                <h3>Caption: {post.body}</h3>
-                                <h4>Comments:</h4>
-                                {post.comments.map((comment) => {
-                                    return(
-                                        <>
-                                            <h5>{comment.user}</h5>
-                                            <p>{comment.text}</p>
-                                        </>
-                                    )
-                                })}
-                                <button onClick={() => showEdit(post._id)}>Edit Post</button>
+                        
+                        return(
+                            <>
+                            {(post.owner===props.currentUser.username)?                        
+                            <div className="post" key={post._id}>
+                                <p className='username'><span className='header'>Posted By: </span>{post.owner}</p>
+                                <img src={post.image} alt="cool pic"/>
+                                <div className="post-info">
+                                    <p><span className='header'>Likes: </span> {post.likes}</p>
+                                    <p><span className='header'>Caption: </span>{post.body}</p>
+                                    <p><span className='header'>Categories:</span>
+                                    {post.category.map((cat) => {
+                                        return (
+                                                <span className='category-list' key={cat}>{cat}</span>
+                                        )
+                                    })}
+                                    </p>
+                                    <details>
+                                        <summary>Comments:</summary>
+                                        {post.comments.map((comment) => {
+                                            return(
+                                                <div key={comment._id}>
+                                                    <h5>{comment.user}</h5>
+                                                    <p>{comment.text}</p>
+                                                </div>
+                                            )
+                                        })}
+                                    </details>
+                                    <button className='edit-button' onClick={() => showEdit(post._id)}>Edit Post</button>
+                                    <button className='remove-button' onClick={() => deletePost(post)}>Delete Post</button>
+                                </div>
                             </div>
-                        )
+                            :<></>
+                            }
+                            </>
+                            
+                        )                        
                     })}
                 </div>
             </div>
@@ -65,16 +100,16 @@ const Profile = (props) => {
     }
     return (
         <>
-        {page === 0? showProfile() : <></>}
-        {
-            props.posts.map((post) => {
-                return (
-                    <>
-                        {(page === post._id) ? <EditPost post={post} setPage={setPage} postEdit={props.postEdit}/>: <></>}
-                    </>
-                )
-            })
-        }
+            {page === 0? showProfile() : <></>}
+            {
+                props.posts.map((post) => {
+                    return (
+                        <div key={post._id}>
+                            {(page === post._id) ? <EditPost post={post} setPage={setPage} postEdit={props.postEdit}/>: <></>}
+                        </div>
+                    )
+                })
+            }
         </>
     )
 }
