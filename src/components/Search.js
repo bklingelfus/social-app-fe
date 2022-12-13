@@ -150,7 +150,7 @@ const Search = (props) => {
     // RENDER
     return (
         <>
-            <div>
+            <div className='search-container'>
                 <form className='search-form' onSubmit={runSearch}>
                     <input className='search-bar' type='text' onChange={handleSearch} placeholder="user, category, ..."></input>
                     <input className='search-button' type='submit' value='Search'></input>

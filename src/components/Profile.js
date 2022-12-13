@@ -82,8 +82,8 @@ const Profile = (props) => {
                                             )
                                         })}
                                     </details>
-                                    <button onClick={() => showEdit(post._id)}>Edit Post</button>
-                                    <button onClick={() => deletePost(post)}>Delete Post</button>
+                                    <button className='edit-button' onClick={() => showEdit(post._id)}>Edit Post</button>
+                                    <button className='remove-button' onClick={() => deletePost(post)}>Delete Post</button>
                                 </div>
                             </div>
                             :<></>
