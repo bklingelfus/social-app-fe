@@ -1,10 +1,10 @@
 const Post =(props)=>{
     return (
-        <div>
+        <div className='posts-container'>
             {props.posts.map((post) => {
                 return(
                     <div className="post" key={post._id}>
-                        <p><span className='header'>Posted By: </span>{post.owner}</p>
+                        <p className='username'><span className='header'>Posted By: </span>{post.owner}</p>
                         <img src={post.image} alt="cool pic"/>
                         <div className="post-info">
                             <p><span className='header'>Likes: </span> {post.likes}</p>
